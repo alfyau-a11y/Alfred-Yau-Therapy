@@ -10,108 +10,104 @@
             --deep-slate: #1a1e21;
             --warm-stone: #f8f5f2;
             --accent-gold: #c5a98d;
-            --soft-white: #ffffff;
+            --glass-white: rgba(255, 255, 255, 0.65);
             --text-muted: #5a5a5a;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', sans-serif;
             color: var(--deep-slate);
-            background-color: var(--warm-stone);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            background-color: var(--warm-stone);
+            /* FEATURE 1: MESH GRADIENT (Color depth) */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(225, 215, 200, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(197, 169, 141, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(225, 215, 200, 0.4) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(197, 169, 141, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* FEATURE 2: TACTILE GRAIN OVERLAY */
+        .grain-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.04; pointer-events: none; z-index: 9999;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; margin: 0; }
 
-        /* Smooth Fade-In Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Navigation - Minimalist & Floating */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 30px 60px;
+            padding: 25px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(248, 245, 242, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(248, 245, 242, 0.7);
+            backdrop-filter: blur(15px); /* FEATURE 3: GLASSMORPHISM NAV */
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
-        .nav-logo img { height: 100px; transition: 0.3s; }
-        .nav-link { 
-            text-decoration: none; 
-            color: var(--deep-slate); 
-            font-size: 0.75rem; 
-            font-weight: 600; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
-        }
-        .nav-link:hover { border-bottom: 1px solid var(--accent-gold); }
 
-        /* Hero Section - Split Layout */
+        .nav-logo img { height: 80px; }
+
         .hero {
             display: flex;
             min-height: 100vh;
             align-items: center;
             padding-top: 80px;
         }
-        .hero-text {
-            width: 50%;
-            padding: 0 10%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .hero-text { width: 50%; padding: 0 8%; }
         .hero-image {
-            width: 50%;
-            height: 90vh;
+            width: 45%;
+            height: 85vh;
             background: url('banner.jpg') center/cover no-repeat;
-            margin-right: 40px;
-            border-radius: 2px;
+            margin-right: 5%;
+            border-radius: 4px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
         }
-        .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 450px; font-style: italic; }
-
-        /* Content Sections */
-        .section { padding: 140px 10%; }
         
-        /* Intro - Large Typography */
-        .intro-text { font-size: 1.8rem; line-height: 1.4; color: var(--deep-slate); max-width: 900px; }
-        .accent-line { width: 60px; height: 1px; background: var(--accent-gold); margin-bottom: 30px; }
+        .hero h1 { font-size: clamp(3rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 25px; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 480px; font-style: italic; }
 
-        /* Specialties - Modern Cards */
+        .section { padding: 120px 10%; position: relative; }
+        .intro-text { font-size: 1.9rem; line-height: 1.5; color: var(--deep-slate); max-width: 900px; margin-bottom: 80px; }
+        .accent-line { width: 50px; height: 1.5px; background: var(--accent-gold); margin-bottom: 30px; }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
+
+        /* FEATURE 3: GLASSMORPHISM CARDS */
         .card { 
-            background: var(--soft-white); 
-            padding: 50px; 
-            border-radius: 0; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03); 
+            background: var(--glass-white); 
+            backdrop-filter: blur(12px);
+            padding: 60px 45px; 
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.02); 
             transition: var(--transition);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); background: rgba(255,255,255,0.85); }
         .card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-gold); }
 
-        /* Bio Section - Overlapping Elements */
-        .bio-wrap { position: relative; background: var(--soft-white); overflow: visible; }
+        .bio-wrap { background: rgba(255,255,255,0.4); }
         .bio-content { display: flex; align-items: center; gap: 80px; }
         .bio-img-frame { position: relative; flex-shrink: 0; }
-        .bio-image { width: 400px; position: relative; z-index: 2; }
+        .bio-image { width: 380px; position: relative; z-index: 2; box-shadow: 15px 15px 40px rgba(0,0,0,0.1); }
         .bio-outline { 
             position: absolute; 
-            top: 20px; left: 20px; 
+            top: 25px; left: 25px; 
             width: 100%; height: 100%; 
             border: 1px solid var(--accent-gold); 
             z-index: 1; 
@@ -119,44 +115,46 @@
 
         .btn {
             display: inline-block;
-            padding: 20px 45px;
+            padding: 18px 40px;
             background: var(--deep-slate);
-            color: white;
+            color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 3px;
-            margin-top: 40px;
-            transition: 0.3s;
+            margin-top: 30px;
+            transition: 0.4s;
         }
-        .btn:hover { background: var(--accent-gold); letter-spacing: 4px; }
+        .btn:hover { background: var(--accent-gold); transform: scale(1.02); }
 
         @media (max-width: 992px) {
             nav { padding: 20px 30px; }
             .hero { flex-direction: column-reverse; text-align: center; }
             .hero-text, .hero-image { width: 100%; padding: 40px 20px; }
-            .hero-image { height: 50vh; margin-right: 0; }
+            .hero-image { height: 45vh; margin-right: 0; }
             .bio-content { flex-direction: column; text-align: center; }
-            .bio-image { width: 100%; max-width: 350px; }
+            .bio-image { width: 100%; max-width: 320px; }
         }
 
-        footer { padding: 100px 10%; background: #111; color: white; text-align: center; }
-        footer p { opacity: 0.5; font-size: 0.8rem; letter-spacing: 1px; }
+        footer { padding: 80px 10%; background: #1a1e21; color: rgba(255,255,255,0.5); text-align: center; }
+        footer p { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
+    <div class="grain-overlay"></div>
+
     <nav>
         <a href="#" class="nav-logo"><img src="logo.png" alt="Alfred Yau"></a>
-        <a href="mailto:info@alfredyautherapy.ca" class="nav-link">Contact</a>
+        <a href="mailto:info@alfredyautherapy.ca" style="text-decoration:none; color:var(--deep-slate); font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Contact</a>
     </nav>
 
     <section class="hero">
         <div class="hero-text">
             <div class="accent-line"></div>
             <h1>Emotional Discovery</h1>
-            <p>The art of self-attunement in an over-analyzed world.</p>
-            <div><a href="mailto:info@alfredyautherapy.ca" class="btn">Book a Session</a></div>
+            <p>Navigating life’s transitions through relational wellness and the art of self-attunement.</p>
+            <div><a href="mailto:info@alfredyautherapy.ca" class="btn">Connect with Alfred</a></div>
         </div>
         <div class="hero-image"></div>
     </section>
@@ -165,18 +163,18 @@
         <div class="reveal">
             <div class="accent-line"></div>
             <div class="intro-text">
-                Many move through life with effective tools but an underdeveloped internal map. Together, we decode the language of the self—closing the gap between who you are and how you live.
+                Many navigate life with effective tools but an <span style="font-style:italic;">underdeveloped internal map.</span> Together, we decode the language of the self—closing the gap between who you are and how you live.
             </div>
         </div>
 
         <div class="grid">
             <div class="card reveal">
                 <h3>Transitions</h3>
-                <p>Navigating change requires more than logic. It asks for the courage to acknowledge what is being left behind and the space to see what is emerging.</p>
+                <p>Moving through change requires more than logic. It asks for the courage to acknowledge what is being left behind and the space to see what is waiting to emerge.</p>
             </div>
             <div class="card reveal">
                 <h3>Wellness</h3>
-                <p>Relational wellness begins with the self. We explore the patterns that keep you isolated and build connections that feel stable and true.</p>
+                <p>Relational wellness begins with the self. We explore the patterns that keep you isolated and build connections that are both stable and deeply felt.</p>
             </div>
             <div class="card reveal">
                 <h3>Attunement</h3>
@@ -193,14 +191,14 @@
             </div>
             <div class="bio-text">
                 <div class="accent-line"></div>
-                <h2>Meet Alfred</h2>
-                <p style="font-size: 1.15rem; margin-top: 30px;">
-                    I combine the master-level pattern recognition of my background as an actuary with a finely tuned emotional lens developed through clinical experience.
+                <h2>The Approach</h2>
+                <p style="font-size: 1.1rem; margin-top: 25px; color: var(--deep-slate);">
+                    I bring a unique combination of lived experience, analytical rigour, and a deeply tuned emotional lens to my clinical work. 
                 </p>
                 <p>
-                    My work is about helping you hear your own voice. Whether you are navigating a major life transition or simply feeling a persistent sense of being "lost," we work to find a path that is both grounded and deeply felt.
+                    My path from the world of actuarial systems to psychotherapy has taught me that true wellness lies in the spaces between the numbers. I specialize in working with individuals—particularly men—who feel a disconnection between their internal reality and their external life.
                 </p>
-                <a href="mailto:info@alfredyautherapy.ca" class="btn">Reach Out</a>
+                <a href="mailto:info@alfredyautherapy.ca" class="btn">Begin the Process</a>
             </div>
         </div>
     </section>
@@ -208,12 +206,11 @@
     <footer>
         <p>ALFRED YAU THERAPY</p>
         <p>Registered Psychotherapist (Qualifying) </p>
-        <p>&copy; 2026 | All Rights Reserved</p>
+        <p>&copy; 2026 | ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
-        // Simple script to reveal elements on scroll
-        const observerOptions = { threshold: 0.1 };
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
