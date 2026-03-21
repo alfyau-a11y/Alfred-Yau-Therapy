@@ -19,6 +19,7 @@
             background-color: var(--warm-stone);
             margin: 0;
             line-height: 1.8;
+            overflow-x: hidden; /* Prevents side-scrolling */
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--deep-slate); font-weight: 400; }
@@ -27,19 +28,19 @@
         nav {
             position: fixed;
             top: 0; width: 100%;
-            background: rgba(244, 241, 238, 0.95);
+            background: rgba(244, 241, 238, 0.98);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
+            padding: 15px 40px;
             z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo-text { font-family: 'Playfair Display', serif; letter-spacing: 2px; text-decoration: none; color: var(--deep-slate); font-weight: bold; }
 
         /* Hero Section */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(244, 241, 238, 0.7), rgba(244, 241, 238, 0.7)), url('banner.jpg');
+            min-height: 85vh;
+            background: linear-gradient(rgba(244, 241, 238, 0.6), rgba(244, 241, 238, 0.6)), url('banner.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -47,33 +48,40 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 100px 20px;
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-style: italic; }
-        .hero p { font-size: 1.2rem; max-width: 600px; color: var(--deep-slate); letter-spacing: 0.5px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; color: var(--deep-slate); margin-bottom: 30px; }
 
-        /* Core Philosophy Section */
-        .intro { max-width: 800px; margin: 100px auto; padding: 0 20px; text-align: center; }
-        .intro h2 { font-size: 2.2rem; margin-bottom: 30px; }
-        .intro p { font-size: 1.1rem; color: var(--text-main); }
-
-        /* Focus Areas */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+        /* Intro */
+        .intro { max-width: 800px; margin: 80px auto; padding: 0 20px; text-align: center; }
+        
+        /* Grid Section - Fixed Structure */
+        .specialties-container {
             max-width: 1100px;
             margin: 0 auto 100px;
             padding: 0 20px;
         }
-        .grid-item { border-left: 1px solid var(--muted-gold); padding-left: 25px; }
-        .grid-item h3 { font-size: 1.4rem; margin-top: 0; }
+        
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .grid-item { 
+            flex: 1;
+            min-width: 280px;
+            border-left: 1px solid var(--muted-gold); 
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
 
         /* Bio Section */
-        .bio-section { background: white; padding: 100px 0; }
+        .bio-section { background: white; padding: 100px 0; width: 100%; }
         .bio-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; padding: 0 40px; }
-        .bio-image { width: 400px; filter: grayscale(20%); }
-        .bio-text { flex: 1; }
+        .bio-image { width: 350px; height: auto; box-shadow: 10px 10px 0px var(--warm-stone); }
 
         .btn {
             display: inline-block;
@@ -81,7 +89,6 @@
             color: var(--deep-slate);
             padding: 15px 35px;
             text-decoration: none;
-            margin-top: 30px;
             transition: 0.3s;
             text-transform: uppercase;
             font-size: 0.8rem;
@@ -90,20 +97,23 @@
         .btn:hover { background: var(--deep-slate); color: white; }
 
         @media (max-width: 768px) {
-            nav { padding: 20px; }
             .hero h1 { font-size: 2.5rem; }
             .bio-container { flex-direction: column; text-align: center; }
             .bio-image { width: 100%; max-width: 300px; }
+            .grid-item { flex: none; width: 100%; }
         }
 
-        footer { padding: 60px; text-align: center; font-size: 0.8rem; letter-spacing: 1px; color: #888; }
+        footer { padding: 60px; text-align: center; font-size: 0.8rem; background: var(--warm-stone); }
     </style>
 </head>
 <body>
 
-<a href="#" class="logo-text">
-    <img src="logo.png" alt="Alfred Yau Therapy" style="height: 45px; vertical-align: middle;">
-</a>
+    <nav>
+        <a href="#" style="text-decoration:none;">
+            <img src="logo.png" alt="Alfred Yau Therapy" style="height: 45px; vertical-align: middle;">
+        </a>
+        <a href="mailto:info@alfredyautherapy.ca" style="text-decoration:none; color:var(--deep-slate); font-weight:600; font-size:0.8rem; letter-spacing:1px;">CONTACT</a>
+    </nav>
 
     <header class="hero">
         <h1>Emotional Discovery</h1>
@@ -116,9 +126,40 @@
         <p>Many of us navigate life with effective tools but an underdeveloped internal map. For those who feel "lost" despite their outward success—particularly men who have long been disconnected from their emotional world—therapy offers a space to decode the language of the self.</p>
     </section>
 
-    <div class="grid">
-        <div class="grid-item">
-            <h3>Life Transitions</h3>
-            <p>Moving through change requires more than logic; it requires the courage to acknowledge what is being left behind and what is waiting to emerge.</p>
+    <div class="specialties-container">
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Life Transitions</h3>
+                <p>Moving through change requires more than logic; it requires the courage to acknowledge what is being left behind and what is waiting to emerge.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Relational Wellness</h3>
+                <p>Understanding the patterns that keep us isolated, and learning how to build connections that are both stable and deeply felt.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Self-Attunement</h3>
+                <p>Developing the "finely tuned ear" needed to hear your own needs, values, and emotions amidst the noise of a demanding world.</p>
+            </div>
         </div>
-        <div
+    </div>
+
+    <section class="bio-section">
+        <div class="bio-container">
+            <img src="bio-photo.jpg" alt="Alfred Yau" class="bio-image">
+            <div class="bio-text">
+                <h2>Meet Alfred</h2>
+                <p>I bring a unique combination of lived experience, analytical rigour, and a deeply tuned emotional lens to my clinical work. My background as an actuary provided me with a high-level mastery of systems and patterns, but my path as a therapist has taught me that true wellness lies in the spaces between the numbers.</p>
+                <p>Together, we work to close the gap between your internal reality and your external life through a process of steady discovery and compassionate inquiry.</p>
+                <a href="mailto:info@alfredyautherapy.ca" class="btn">Connect with me</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>ALFRED YAU THERAPY<br>
+        Registered Psychotherapist (RP) | Ontario, Canada<br>
+        &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
