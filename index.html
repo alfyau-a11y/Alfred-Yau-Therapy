@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfred Yau Therapy | Registered Psychotherapist</title>
+    <style>
+        :root {
+            --slate: #2c3e50;
+            --sage: #9caf88;
+            --ivory: #fcfcfc;
+            --soft-gray: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--slate);
+            background-color: var(--ivory);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hero Banner Section */
+        header {
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--slate); }
+        .subtitle { font-size: 1.2rem; color: var(--sage); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+        /* About Section with Photo */
+        .bio-section { display: flex; align-items: center; gap: 40px; margin-top: 40px; }
+        .bio-photo { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        @media (max-width: 600px) {
+            .bio-section { flex-direction: column; text-align: center; }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--slate);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover { background-color: var(--sage); }
+
+        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #777; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Alfred Yau Therapy</h1>
+        <div class="subtitle">Analytical Precision. Emotional Insight.</div>
+    </header>
+
+    <div class="container">
+        <section class="bio-section">
+            <img src="bio-photo.jpg" alt="Alfred Yau, Registered Psychotherapist" class="bio-photo">
+            
+            <div>
+                <h2>Precision & Insight</h2>
+                <p>As a Registered Psychotherapist (RP) and former actuary, I bring a unique blend of analytical clarity and deep empathetic understanding to the therapeutic process.</p>
+                <p>I specialize in evidence-based modalities including the <strong>Gottman Method</strong> for relationships and <strong>Cognitive Processing Therapy (CPT)</strong> for trauma, helping individuals and families navigate complexity with grounded strategy.</p>
+            </div>
+        </section>
+
+        <hr style="margin: 60px 0; border: 0; border-top: 1px solid #eee;">
+
+        <section style="text-align: center;">
+            <h3>Start the Conversation</h3>
+            <p>Ready to move forward? I am currently accepting new clients for virtual and in-person sessions.</p>
+            <a href="mailto:info@alfredyautherapy.ca" class="cta-button">Contact Me Today</a>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Alfred Yau Therapy | Registered Psychotherapist (CRPO)<br>
+        Serving Ontario, Canada
+    </footer>
+
+</body>
+</html>
