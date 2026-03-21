@@ -3,48 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfred Yau Therapy | Registered Psychotherapist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Alfred Yau Therapy | Relational Wellness & Self-Attunement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50; /* Deep Professional Slate */
-            --accent: #8da083;  /* Muted Sage Green */
-            --bg: #fdfdfd;      /* Clean Off-white */
-            --text: #444444;
-            --white: #ffffff;
+            --deep-slate: #2c3338;
+            --warm-stone: #f4f1ee;
+            --muted-gold: #b5a48b;
+            --text-main: #4a4a4a;
         }
 
-        * { box-sizing: border-box; }
-
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text);
-            background-color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--warm-stone);
             margin: 0;
             line-height: 1.8;
         }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-weight: 400; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--deep-slate); font-weight: 400; }
 
-        /* Fixed Navigation */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            background: rgba(255,255,255,0.98);
+            background: rgba(244, 241, 238, 0.95);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 60px;
             z-index: 1000;
-            border-bottom: 1px solid #f0f0f0;
         }
-        .nav-logo { font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 2px; font-size: 1.1rem; }
-        .nav-link { text-decoration: none; color: var(--primary); font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; }
+        .logo-text { font-family: 'Playfair Display', serif; letter-spacing: 2px; text-decoration: none; color: var(--deep-slate); font-weight: bold; }
 
-        /* Hero Section (Uses banner.jpg) */
+        /* Hero Section */
         .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('banner.jpg');
+            height: 90vh;
+            background: linear-gradient(rgba(244, 241, 238, 0.7), rgba(244, 241, 238, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -52,109 +47,79 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-top: 60px;
             padding: 0 20px;
         }
-        .hero h1 { font-size: 4rem; margin: 0; color: var(--primary); }
-        .hero p { font-size: 1.4rem; color: var(--primary); font-style: italic; margin-top: 10px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-style: italic; }
+        .hero p { font-size: 1.2rem; max-width: 600px; color: var(--deep-slate); letter-spacing: 0.5px; }
+
+        /* Core Philosophy Section */
+        .intro { max-width: 800px; margin: 100px auto; padding: 0 20px; text-align: center; }
+        .intro h2 { font-size: 2.2rem; margin-bottom: 30px; }
+        .intro p { font-size: 1.1rem; color: var(--text-main); }
+
+        /* Focus Areas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+        .grid-item { border-left: 1px solid var(--muted-gold); padding-left: 25px; }
+        .grid-item h3 { font-size: 1.4rem; margin-top: 0; }
+
+        /* Bio Section */
+        .bio-section { background: white; padding: 100px 0; }
+        .bio-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; padding: 0 40px; }
+        .bio-image { width: 400px; filter: grayscale(20%); }
+        .bio-text { flex: 1; }
 
         .btn {
             display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 18px 40px;
+            border: 1px solid var(--deep-slate);
+            color: var(--deep-slate);
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 2px;
             margin-top: 30px;
-            transition: 0.4s ease;
+            transition: 0.3s;
             text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
             font-size: 0.8rem;
+            letter-spacing: 2px;
         }
-        .btn:hover { background: var(--primary); transform: translateY(-2px); }
+        .btn:hover { background: var(--deep-slate); color: white; }
 
-        /* Specialties Section */
-        .section-container { max-width: 1100px; margin: 100px auto; padding: 0 20px; text-align: center; }
-        .section-title { font-size: 2.5rem; margin-bottom: 50px; }
-        
-        .specialties-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-        .card { padding: 40px; background: var(--white); border: 1px solid #f5f5f5; transition: 0.3s; }
-        .card:hover { border-color: var(--accent); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; border-bottom: 1px solid var(--accent); display: inline-block; padding-bottom: 10px; }
-
-        /* Bio Section */
-        .bio-wrapper { background: #f9f9f9; padding: 100px 0; }
-        .bio-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 80px; padding: 0 40px; }
-        .bio-image { width: 45%; border-radius: 2px; box-shadow: 15px 15px 0px var(--accent); }
-        .bio-content { width: 55%; text-align: left; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 850px) {
+        @media (max-width: 768px) {
             nav { padding: 20px; }
             .hero h1 { font-size: 2.5rem; }
-            .bio-container { flex-direction: column; text-align: center; gap: 40px; }
-            .bio-image, .bio-content { width: 100%; }
-            .bio-content { text-align: center; }
+            .bio-container { flex-direction: column; text-align: center; }
+            .bio-image { width: 100%; max-width: 300px; }
         }
 
-        footer { background: var(--primary); color: white; padding: 80px 20px; text-align: center; font-size: 0.9rem; }
-        footer p { opacity: 0.8; letter-spacing: 1px; }
+        footer { padding: 60px; text-align: center; font-size: 0.8rem; letter-spacing: 1px; color: #888; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">ALFRED YAU THERAPY</a>
-        <a href="mailto:info@alfredyautherapy.ca" class="nav-link">CONTACT</a>
+        <a href="#" class="logo-text">ALFRED YAU</a>
+        <a href="mailto:info@alfredyautherapy.ca" style="text-decoration:none; color:var(--deep-slate); font-weight:600; font-size:0.8rem;">CONTACT</a>
     </nav>
 
     <header class="hero">
-        <h1>Precision & Insight</h1>
-        <p>A thoughtful approach to mental health and relationships.</p>
-        <a href="mailto:info@alfredyautherapy.ca" class="btn">Schedule a Consultation</a>
+        <h1>Emotional Discovery</h1>
+        <p>Navigating life’s transitions through relational wellness and the art of self-attunement.</p>
+        <a href="mailto:info@alfredyautherapy.ca" class="btn">Begin the Process</a>
     </header>
 
-    <div class="section-container">
-        <h2 class="section-title">Areas of Focus</h2>
-        <div class="specialties-grid">
-            <div class="card">
-                <h3>Relationship Therapy</h3>
-                <p>Utilizing the <strong>Gottman Method</strong> to help couples manage conflict, build shared meaning, and strengthen emotional intimacy.</p>
-            </div>
-            <div class="card">
-                <h3>Trauma Recovery</h3>
-                <p>Specialized <strong>Cognitive Processing Therapy (CPT)</strong> for navigating the impacts of traumatic experiences with structured support.</p>
-            </div>
-            <div class="card">
-                <h3>Individual Growth</h3>
-                <p>Supporting transitions and mental health challenges with a blend of analytical clarity and compassionate therapeutic insight.</p>
-            </div>
+    <section class="intro">
+        <h2>Finding your way back to yourself.</h2>
+        <p>Many of us navigate life with effective tools but an underdeveloped internal map. For those who feel "lost" despite their outward success—particularly men who have long been disconnected from their emotional world—therapy offers a space to decode the language of the self.</p>
+    </section>
+
+    <div class="grid">
+        <div class="grid-item">
+            <h3>Life Transitions</h3>
+            <p>Moving through change requires more than logic; it requires the courage to acknowledge what is being left behind and what is waiting to emerge.</p>
         </div>
-    </div>
-
-    <div class="bio-wrapper">
-        <section class="bio-container">
-            <img src="bio-photo.jpg" alt="Alfred Yau, Registered Psychotherapist" class="bio-image">
-            <div class="bio-content">
-                <h2>Meet Alfred Yau</h2>
-                <p><strong>Registered Psychotherapist (RP)</strong></p>
-                <p>With a professional background as an actuary, I offer a unique perspective in the clinical space. I combine the meticulous, analytical nature of my former career with the deep, empathetic connection required for transformative therapy.</p>
-                <p>I believe that healing involves both understanding the "why" and developing a practical "how." My goal is to provide a grounded, safe space for residents of Ontario to explore their challenges and find clear paths forward.</p>
-                <a href="mailto:info@alfredyautherapy.ca" class="btn" style="background: var(--primary);">Get in Touch</a>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>ALFRED YAU THERAPY</p>
-        <p>&copy; 2026 | Registered Psychotherapist (CRPO)<br>
-        Providing Virtual support across Canada and In-Person Support in Ontario, Canada</p>
-    </footer>
-
-</body>
-</html>
+        <div
